@@ -1,9 +1,30 @@
+@user = barry
+@password = S3nh@
+@createdAt = {{$datetime iso8601}}
+@endAt = {{$datetime iso8601 2 h}}
+
 # @name create-user
 POST http://localhost:8080/users/
 Content-Type: application/json
 
 {
-  "username": "Barry",
+  "username": "{{user}}",
   "name": "Reinaldo Correia",
-  "password": "S3nh@"
+  "password": "{{password}}"
+}
+
+###
+
+# @name create-task
+POST http://localhost:8080/tasks/
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "idUser": "{{$guid}}",
+  "description": "Tarefa para testar projeto",
+  "title": "Teste",
+  "priority": "ALTA",
+  "startAt": "{{createdAt}}",
+  "endAt": "{{endAt}}"
 }
