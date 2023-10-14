@@ -22,7 +22,7 @@ Content-Type: application/json
 
 {
   "description": "Tarefa para testar projeto",
-  "title": "Teste",
+  "title": "descriptionTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projetoTarefa para testar projeto",
   "priority": "ALTA",
   "startAt": "{{startAt}}",
   "endAt": "{{endAt}}"
@@ -37,7 +37,7 @@ Authorization: Basic {{user}}:{{password}}
 ###
 
 # @name update-tasks
-PUT http://localhost:8080/tasks/6c0be67d-0efd-4cdf-8b27-580d75866ffb
+PUT http://localhost:8080/tasks/a63cf84a-a85c-476b-b985-13afd293a231
 Authorization: Basic {{user}}:{{password}}
 Content-Type: application/json
 

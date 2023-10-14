@@ -66,7 +66,13 @@ public class TaskController {
       return ResponseEntity.badRequest().body("task not found.");
     }
 
+    if (!task.getIdUser().equals(request.getAttribute("idUser"))) {
+      return ResponseEntity.badRequest().body("task not found.");
+    }
+
     Utils.copyNonNullProperties(taskModel, task);
-    return ResponseEntity.ok().body(task);
+    var taskUpdated = this.taskRepository.save(task);
+
+    return ResponseEntity.ok().body(taskUpdated);
   }
 }
