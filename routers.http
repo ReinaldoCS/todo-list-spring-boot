@@ -1,7 +1,7 @@
 @user = barry
 @password = S3nh@
-@createdAt = {{$datetime iso8601}}
-@endAt = {{$datetime iso8601 2 h}}
+@startAt = {{$datetime iso8601}}
+@endAt = {{$datetime iso8601}}
 
 # @name create-user
 POST http://localhost:8080/users/
@@ -21,10 +21,26 @@ Authorization: Basic {{user}}:{{password}}
 Content-Type: application/json
 
 {
-  "idUser": "{{$guid}}",
   "description": "Tarefa para testar projeto",
   "title": "Teste",
   "priority": "ALTA",
-  "startAt": "{{createdAt}}",
+  "startAt": "{{startAt}}",
   "endAt": "{{endAt}}"
+}
+
+###
+
+# @name list-tasks
+GET http://localhost:8080/tasks/
+Authorization: Basic {{user}}:{{password}}
+
+###
+
+# @name update-tasks
+PUT http://localhost:8080/tasks/6c0be67d-0efd-4cdf-8b27-580d75866ffb
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "description": "Mudando titulo da task"
 }
